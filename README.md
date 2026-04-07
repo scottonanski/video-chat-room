@@ -52,3 +52,9 @@ See [DEPLOY.md](./DEPLOY.md) for full instructions on deploying the backend to R
 - Mesh WebRTC works well for **5–8 people**. Beyond that, quality degrades.
 - No TURN server — users behind strict NATs may fail to connect.
 - Chat persistence requires MongoDB. Without it, chat works in real-time but doesn't survive a restart.
+
+---
+
+## Support
+
+If you find this project helpful, consider [buying me a coffee ☕](https://buymeacoffee.com/d0qtanhk43). Your support helps keep this project maintained and free for everyone.
