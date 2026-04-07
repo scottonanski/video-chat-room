@@ -1,6 +1,8 @@
 # Video Chat Room
 
-A single-room video chat app for a small group of friends. No accounts, no sign-ups — just enter a name and join.
+A single-room video chat app for a small group of friends. No accounts, no sign-ups just enter a name and join.
+
+![Video Chat Room screenshot](public/screen-shot.png)
 
 ## Features
 
