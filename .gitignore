@@ -1,0 +1,33 @@
+# Dependencies
+node_modules
+
+# Build output
+dist
+
+# Vite
+.vite
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# Python backend
+backend/venv
+backend/__pycache__
+__pycache__
+*.pyc
+
+# Logs
+*.log
+npm-debug.log*

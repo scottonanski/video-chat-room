@@ -4,13 +4,16 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>video-chat-room</title>
+    <title>Video Chat Room</title>
+    <script>
+      (function() {
+        var theme = localStorage.getItem('theme') || 'dark';
+        if (theme === 'dark') document.documentElement.classList.add('dark');
+      })();
+    </script>
   </head>
   <body>
-
-      <h1 class="text-3xl font-bold underline">
-    Hello world!
-  </h1>
-    <script type="module" src="/src/main.ts"></script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
