@@ -46,7 +46,7 @@ Set these in the Render dashboard under **Environment**:
 | Variable | Value | Required |
 |---|---|---|
 | `CORS_ORIGINS` | `https://your-domain.com` | Yes — your frontend URL |
-| `MONGO_URL` | `mongodb+srv://user:pass@cluster.mongodb.net/video-chat` | No — only for chat persistence |
+| `MONGO_URL` | `your-mongodb-atlas-connection-string-here` | No — only for chat persistence |
 | `DB_NAME` | `video_chat_room` | No — defaults to `team_call_db` |
 
 > **Note:** If you skip `MONGO_URL`, chat still works in real-time — messages just won't persist across server restarts.
