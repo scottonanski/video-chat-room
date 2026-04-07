@@ -4,6 +4,8 @@ A single-room video chat app for a small group of friends. No accounts, no sign-
 
 ![Video Chat Room screenshot](public/screen-shot.png)
 
+**Status:** Working great locally. Live deployment coming soon. See [DEPLOY.md](./DEPLOY.md) for deployment instructions.
+
 ## Features
 
 - **Video & audio** — WebRTC mesh calling with noise suppression and echo cancellation
