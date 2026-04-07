@@ -10,10 +10,10 @@ See [DEPLOY.md](./DEPLOY.md) for deployment instructions.
 
 ## Features
 
-- **Video & audio** - WebRTC mesh calling with noise suppression and echo cancellation
-- **Screen sharing** - Share your screen with the group
+- **Video & Audio** - WebRTC mesh calling with noise suppression and echo cancellation
+- **Screen Sharing** - Share your screen with the group
 - **Chat** - Real-time text chat with message bubbles
-- **Admin controls** - First person to join becomes admin (mute, camera off, kick)
+- **Admin Controls** - First person to join becomes admin (mute, camera off, kick)
 - **Device Switching** - Switch between cameras and microphones
 - **Hand Raise & BRB Mode** - Raise your hand to indicate you want to speak or take a break
 - **Picture in Picture** - Default &  Fullscreen both display a picture in picture.
