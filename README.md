@@ -4,22 +4,25 @@ A single-room video chat app for a small group of friends. No accounts, no sign-
 
 ![Video Chat Room screenshot](public/screen-shot.png)
 
-**Status:** Working great locally. Live deployment coming soon.
+**Status:** Working great locally. Live deployment coming soon. Still working on responsive design.
 
 See [DEPLOY.md](./DEPLOY.md) for deployment instructions.
 
 ## Features
 
-- **Video & audio** — WebRTC mesh calling with noise suppression and echo cancellation
-- **Screen sharing** — Share your screen with the group
-- **Chat** — Real-time text chat with message bubbles
-- **Admin controls** — First person to join becomes admin (mute, camera off, kick)
-- **Auto-reconnect** — WebSocket reconnects automatically if the connection drops
+- **Video & audio** - WebRTC mesh calling with noise suppression and echo cancellation
+- **Screen sharing** - Share your screen with the group
+- **Chat** - Real-time text chat with message bubbles
+- **Admin controls** - First person to join becomes admin (mute, camera off, kick)
+- **Device Switching** - Switch between cameras and microphones
+- **Hand Raise & BRB Mode** - Raise your hand to indicate you want to speak or take a break
+- **Picture in Picture** - Default &  Fullscreen both display a picture in picture.
+- **Auto-reconnect** - WebSocket reconnects automatically if the connection drops
 
 ## Stack
 
-- **Frontend** — React 19, TypeScript, Vite, Tailwind CSS 4, shadcn/ui, Lucide icons
-- **Backend** — FastAPI, WebSockets, MongoDB (optional)
+- **Frontend** - React 19, TypeScript, Vite, Tailwind CSS 4, shadcn/ui, Lucide icons
+- **Backend** - FastAPI, WebSockets, MongoDB (optional)
 
 ## Quick start
 
