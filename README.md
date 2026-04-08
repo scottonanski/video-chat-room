@@ -10,6 +10,8 @@ A single-room video chat app for a small group of friends. No accounts, no sign-
 
 ## Tablet View
 
+**Note:** Don't mind my messy hair and unshaven face. 🤪
+
 ![Tablet Chat Room screenshot](public/screencap-tablet.png)
 
 ## Phone View
