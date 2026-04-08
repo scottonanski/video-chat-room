@@ -2,9 +2,24 @@
 
 A single-room video chat app for a small group of friends. No accounts, no sign-ups just enter a name and join.
 
+## Desktop View
+
 ![Video Chat Room screenshot](public/screen-shot.png)
 
-**Status:** Working great locally. Live deployment coming soon. Still working on responsive design.
+## Tablet View
+
+![Tablet Chat Room screenshot](public/screencap-tablet.png)
+
+## Phone View
+
+![Phone Chat Room screenshot](public/screencap-phone.png)
+
+
+
+
+**Status:** Working great locally. Live deployment coming soon.
+
+
 
 See [DEPLOY.md](./DEPLOY.md) for deployment instructions.
 
