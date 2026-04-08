@@ -2,6 +2,8 @@
 
 A single-room video chat app for a small group of friends. No accounts, no sign-ups just enter a name and join.
 
+**Status:** Working great locally. Live deployment coming soon.
+
 ## Desktop View
 
 ![Video Chat Room screenshot](public/screen-shot.png)
@@ -15,12 +17,6 @@ A single-room video chat app for a small group of friends. No accounts, no sign-
 ![Phone Chat Room screenshot](public/screencap-phone.png)
 
 
-
-
-**Status:** Working great locally. Live deployment coming soon.
-
-
-
 See [DEPLOY.md](./DEPLOY.md) for deployment instructions.
 
 ## Features
@@ -31,7 +27,7 @@ See [DEPLOY.md](./DEPLOY.md) for deployment instructions.
 - **Admin Controls** - First person to join becomes admin (mute, camera off, kick)
 - **Device Switching** - Switch between cameras and microphones
 - **Hand Raise & BRB Mode** - Raise your hand to indicate you want to speak or take a break
-- **Picture in Picture** - Default &  Fullscreen both display a picture in picture.
+- **Picture in Picture** - Default & Fullscreen both display a picture in picture.
 - **Auto-reconnect** - WebSocket reconnects automatically if the connection drops
 
 ## Stack
@@ -54,7 +50,6 @@ python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 ```
-
 
 ```bash
 # One the above steps are complete, run the server with the following command moving forward.
