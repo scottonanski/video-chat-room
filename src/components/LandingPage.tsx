@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from 'react'
-import { Video, Sun, Moon } from 'lucide-react'
+import { Video, Sun, Moon, Coffee } from 'lucide-react'
 import type { Theme } from '@/App'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -23,7 +23,7 @@ export default function LandingPage({ onJoin, theme, onToggleTheme }: LandingPag
   }
 
   return (
-    <div className="relative flex min-h-screen items-center justify-center p-4">
+    <div className="relative flex min-h-screen flex-col items-center justify-center p-4">
       <button
         onClick={onToggleTheme}
         className="absolute top-4 right-4 rounded-md p-2 text-muted-foreground transition-colors hover:text-foreground"
@@ -31,6 +31,7 @@ export default function LandingPage({ onJoin, theme, onToggleTheme }: LandingPag
       >
         {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
       </button>
+
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
           <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
@@ -55,6 +56,25 @@ export default function LandingPage({ onJoin, theme, onToggleTheme }: LandingPag
           </form>
         </CardContent>
       </Card>
+
+      <div className="mt-8 transition-all hover:scale-105 active:scale-95">
+        <a
+          href="https://buymeacoffee.com/d0qtanhk43"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group flex flex-col items-center gap-1.5"
+          title="Your support helps keep this project maintained and free for everyone."
+        >
+          <div className="flex items-center gap-2 rounded-full bg-[#FFDD00]/10 px-4 py-2 text-[#FFDD00] transition-colors group-hover:bg-[#FFDD00]/20">
+            <Coffee className="h-4 w-4 fill-current" />
+            <span className="text-xs font-bold uppercase tracking-wider">buy me a coffee</span>
+            <Coffee className="h-4 w-4 fill-current" />
+          </div>
+          <span className="text-[10px] font-medium text-muted-foreground/60 transition-colors group-hover:text-muted-foreground">
+            Your support helps keep this project free.
+          </span>
+        </a>
+      </div>
     </div>
   )
 }

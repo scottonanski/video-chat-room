@@ -1,4 +1,4 @@
-import { Crown, Users, Wifi, WifiOff, Loader2, Sun, Moon, Link, Monitor, Smartphone } from 'lucide-react'
+import { Coffee, Crown, Users, Wifi, WifiOff, Loader2, Sun, Moon, Link, Monitor, Smartphone } from 'lucide-react'
 import { toast } from 'sonner'
 import type { ConnectionStatus } from '@/hooks/useSignaling'
 import type { Theme } from '@/App'
@@ -18,7 +18,7 @@ export default function RoomHeader({ isAdmin, connectionStatus, participantCount
   const isPending = connectionStatus === 'connecting' || connectionStatus === 'reconnecting'
 
   return (
-    <header className="flex items-center justify-between border-b border-border bg-card px-4 py-3">
+    <header className="relative flex items-center justify-between border-b border-border bg-card px-4 py-3">
       <div className="flex items-center gap-3">
         <h1 className="font-heading text-lg font-semibold">
           <span className="hidden sm:inline">Video Chat Room</span>
@@ -30,6 +30,20 @@ export default function RoomHeader({ isAdmin, connectionStatus, participantCount
             Admin
           </span>
         )}
+      </div>
+
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden lg:flex items-center gap-4">
+        <a
+          href="https://buymeacoffee.com/d0qtanhk43"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group flex items-center gap-2 rounded-full bg-[#FFDD00]/10 px-3 py-1 text-[#FFDD00] transition-all hover:bg-[#FFDD00]/20 hover:scale-105 active:scale-95"
+          title="Your support helps keep this project maintained and free for everyone."
+        >
+          <Coffee className="h-3.5 w-3.5 fill-current" />
+          <span className="text-[11px] font-bold uppercase tracking-wider">buy me a coffee</span>
+          <Coffee className="h-3.5 w-3.5 fill-current" />
+        </a>
       </div>
 
       <div className="flex items-center gap-3 text-sm text-muted-foreground">
