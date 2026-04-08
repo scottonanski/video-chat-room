@@ -1,5 +1,5 @@
 import { useEffect, useRef, useCallback, type FormEvent } from 'react'
-import { MessageSquare, Send } from 'lucide-react'
+import { MessageSquare, Send, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { cn } from '@/lib/utils'
@@ -21,6 +21,9 @@ interface ChatPanelProps {
   onSendEmoji: (emoji: string) => void
   unreadCount: number
   onResetUnread: () => void
+  isOpen?: boolean
+  onClose?: () => void
+  isTouch?: boolean
 }
 
 function formatTime(timestamp: string) {
@@ -76,6 +79,9 @@ export default function ChatPanel({
   onSendEmoji,
   unreadCount,
   onResetUnread,
+  isOpen = false,
+  onClose,
+  isTouch = false,
 }: ChatPanelProps) {
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const isAtBottomRef = useRef(true)
@@ -104,7 +110,19 @@ export default function ChatPanel({
   }, [messages])
 
   return (
-    <div className="flex w-80 shrink-0 flex-col border-l border-border bg-card">
+    <>
+      {/* Panel — full-screen overlay on touch, persistent sidebar on desktop */}
+      <div
+        className={cn(
+          'flex flex-col bg-card',
+          isTouch
+            ? cn(
+                'fixed inset-0 z-40 border-t border-border transition-transform duration-300 ease-in-out',
+                isOpen ? 'translate-y-0' : 'translate-y-full',
+              )
+            : 'w-80 shrink-0 border-l border-border',
+        )}
+      >
       <div className="flex items-center gap-2 border-b border-border px-4 py-3">
         <MessageSquare className="h-4 w-4 text-muted-foreground" />
         <h2 className="font-heading text-sm font-semibold">Chat</h2>
@@ -112,6 +130,15 @@ export default function ChatPanel({
           <span className="rounded-full bg-primary px-1.5 text-[10px] font-semibold text-primary-foreground">
             {unreadCount}
           </span>
+        )}
+        {onClose && (
+          <button
+            onClick={onClose}
+            className={cn('ml-auto rounded-md p-1.5 text-muted-foreground transition-colors hover:text-foreground', !isTouch && 'hidden')}
+            title="Close chat"
+          >
+            <X className="h-4 w-4" />
+          </button>
         )}
       </div>
 
@@ -160,5 +187,6 @@ export default function ChatPanel({
         </form>
       </div>
     </div>
+    </>
   )
 }

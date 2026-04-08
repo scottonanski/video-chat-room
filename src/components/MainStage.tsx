@@ -88,7 +88,7 @@ export default function MainStage({
         </button>
 
         {isViewingPeer && (
-          <div className="absolute top-3 right-3 z-10 w-48 aspect-video overflow-hidden rounded-lg border-2 border-white/20 shadow-2xl bg-black">
+          <div className="absolute top-3 right-3 z-10 w-24 sm:w-40 aspect-video overflow-hidden rounded-lg border-2 border-white/20 shadow-2xl bg-black">
             <video
               ref={selfVideoRef}
               autoPlay

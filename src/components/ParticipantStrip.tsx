@@ -54,7 +54,7 @@ function LocalTile({
     <button
       onClick={onSelect}
       className={cn(
-        'relative aspect-video w-48 shrink-0 cursor-pointer overflow-hidden rounded-lg border-2 border-border bg-muted transition-colors hover:border-primary',
+        'relative aspect-video w-32 sm:w-48 shrink-0 cursor-pointer overflow-hidden rounded-lg border-2 border-border bg-muted transition-colors hover:border-primary',
         isAdmin && 'border-primary/50',
       )}
     >
@@ -99,7 +99,7 @@ function PeerTile({
   return (
     <div
       className={cn(
-        'group relative aspect-video w-48 shrink-0 cursor-pointer overflow-hidden rounded-lg border-2 border-border bg-muted transition-colors hover:border-primary',
+        'group relative aspect-video w-32 sm:w-48 shrink-0 cursor-pointer overflow-hidden rounded-lg border-2 border-border bg-muted transition-colors hover:border-primary',
         peer.isAdmin && 'border-primary/50',
       )}
       onClick={onSelect}

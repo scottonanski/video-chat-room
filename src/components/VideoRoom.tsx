@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback, useRef, type FormEvent } from 'react'
+import { useIsTouch } from '@/hooks/useIsTouch'
 import { toast } from 'sonner'
 import { useMediaStream } from '@/hooks/useMediaStream'
 import { useSignaling, BACKEND_URL } from '@/hooks/useSignaling'
@@ -28,7 +29,9 @@ export default function VideoRoom({ userName, onLeave, theme, onToggleTheme }: V
   })
   const [unreadCount, setUnreadCount] = useState(0)
   const resetUnread = useCallback(() => setUnreadCount(0), [])
+  const [isChatOpen, setIsChatOpen] = useState(false)
   const [isPTTMode, setIsPTTMode] = useState(false)
+  const [isTouch, toggleLayout] = useIsTouch()
   const [myStatus, setMyStatus] = useState<string | null>(null)
 
   const media = useMediaStream()
@@ -332,6 +335,8 @@ export default function VideoRoom({ userName, onLeave, theme, onToggleTheme }: V
         participantCount={Object.keys(peers.peers).length + 1}
         theme={theme}
         onToggleTheme={onToggleTheme}
+        isTouch={isTouch}
+        onToggleLayout={toggleLayout}
       />
 
       <div className="flex min-h-0 flex-1">
@@ -376,6 +381,9 @@ export default function VideoRoom({ userName, onLeave, theme, onToggleTheme }: V
             isPTTMode={isPTTMode}
             onTogglePTTMode={() => setIsPTTMode((v) => !v)}
             myStatus={myStatus}
+            unreadCount={unreadCount}
+            isTouch={isTouch}
+            onToggleChat={() => setIsChatOpen((v) => !v)}
             onSetStatus={(status) => {
               setMyStatus(status)
               signaling.send({ type: 'status', status })
@@ -410,6 +418,9 @@ export default function VideoRoom({ userName, onLeave, theme, onToggleTheme }: V
           onSendEmoji={(emoji) => signaling.send({ type: 'chat', message: emoji })}
           unreadCount={unreadCount}
           onResetUnread={resetUnread}
+          isTouch={isTouch}
+          isOpen={isChatOpen}
+          onClose={() => setIsChatOpen(false)}
         />
       </div>
     </div>

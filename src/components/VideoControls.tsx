@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Mic, MicOff, Camera, CameraOff, MonitorUp, MonitorOff, LogOut, Settings, Radio, Hand, Clock } from 'lucide-react'
+import { Mic, MicOff, Camera, CameraOff, MonitorUp, MonitorOff, LogOut, Settings, Radio, Hand, Clock, MessageSquare } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import type { MediaDeviceInfo_ } from '@/hooks/useMediaStream'
@@ -20,6 +20,9 @@ interface VideoControlsProps {
   onSwitchDevice: (kind: 'audioinput' | 'videoinput', deviceId: string) => void
   myStatus: string | null
   onSetStatus: (status: string | null) => void
+  unreadCount?: number
+  onToggleChat?: () => void
+  isTouch?: boolean
 }
 
 export default function VideoControls({
@@ -38,6 +41,9 @@ export default function VideoControls({
   onSwitchDevice,
   myStatus,
   onSetStatus,
+  unreadCount = 0,
+  onToggleChat,
+  isTouch = false,
 }: VideoControlsProps) {
   const [showSettings, setShowSettings] = useState(false)
 
@@ -45,7 +51,7 @@ export default function VideoControls({
   const videoDevices = devices.filter((d) => d.kind === 'videoinput')
 
   return (
-    <div className="relative flex items-center justify-center gap-3 py-2">
+    <div className="relative flex flex-wrap items-center justify-center gap-2 py-2 px-2">
       <Button
         variant={isMuted ? 'destructive' : 'secondary'}
         size="icon"
@@ -65,7 +71,7 @@ export default function VideoControls({
         size="icon"
         onClick={onTogglePTTMode}
         title={isPTTMode ? 'Disable push-to-talk' : 'Enable push-to-talk'}
-        className={cn('h-12 w-12 rounded-full')}
+        className={cn('h-12 w-12 rounded-full', isTouch && 'hidden')}
       >
         <Radio className="h-5 w-5" />
       </Button>
@@ -85,7 +91,7 @@ export default function VideoControls({
         size="icon"
         onClick={onToggleScreenShare}
         title={isScreenSharing ? 'Stop sharing' : 'Share screen'}
-        className={cn('h-12 w-12 rounded-full')}
+        className={cn('h-12 w-12 rounded-full', isTouch && 'hidden')}
       >
         {isScreenSharing ? <MonitorOff className="h-5 w-5" /> : <MonitorUp className="h-5 w-5" />}
       </Button>
@@ -110,7 +116,7 @@ export default function VideoControls({
         <Clock className="h-5 w-5" />
       </Button>
 
-      <div className="relative">
+      <div className={cn('relative', isTouch && 'hidden')}>
         {showSettings && (
           <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 w-72 rounded-lg border border-border bg-card p-3 shadow-lg space-y-3">
             {audioDevices.length > 0 && (
@@ -153,6 +159,25 @@ export default function VideoControls({
           <Settings className="h-5 w-5" />
         </Button>
       </div>
+
+      {onToggleChat && (
+        <div className={cn('relative', !isTouch && 'hidden')}>
+          <Button
+            variant="secondary"
+            size="icon"
+            onClick={onToggleChat}
+            title="Open chat"
+            className={cn('h-12 w-12 rounded-full')}
+          >
+            <MessageSquare className="h-5 w-5" />
+          </Button>
+          {unreadCount > 0 && (
+            <span className="pointer-events-none absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-primary-foreground">
+              {unreadCount > 9 ? '9+' : unreadCount}
+            </span>
+          )}
+        </div>
+      )}
 
       <Button
         variant="destructive"
