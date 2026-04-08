@@ -2,7 +2,9 @@
 
 A single-room video chat app for a small group of friends. No accounts, no sign-ups just enter a name and join.
 
-**Status:** Working great locally. Live deployment coming soon.
+**Status:** Working Great both locally and on Render. 
+
+**Responsive Views** Seem to be working great too. All in all, I would sya it's good to go!
 
 ## Desktop View
 
